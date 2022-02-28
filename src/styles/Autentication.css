@@ -1,0 +1,18 @@
+.container-autentication {
+    background-image: url('https://res.cloudinary.com/karma09-jm/image/upload/v1646023750/Pokemon/High_resolution_wallpaper_background_ID_77700524090_pooj9o.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container-col-form {
+    background: #fff;
+    padding: 30px;
+    max-width: 500px;
+    margin: 30px auto;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 3px 1px #200c4e73;
+}
