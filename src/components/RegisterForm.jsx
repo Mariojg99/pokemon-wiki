@@ -4,37 +4,40 @@ import { useDispatch } from 'react-redux';
 import { registerAsync } from '../actions/actionRegistro';
 import { useForm } from '../hooks/useForm';
 
-const RegisterForm = () => {
+export const RegisterForm = () => {
 
     const dispatch = useDispatch();
 
-    const [values, handleInputChange] = useForm({
-        nombres: '',
-        apellidos: '',
-        email: '',
-        contraseña: ''
-    });
+    // const [values, handleInputChange, reset] = useForm({
+    //     nombres: '',
+    //     apellidos: '',
+    //     email: '',
+    //     contraseña: '',
+    // });
 
-    const { nombres, apellidos, email, contraseña } = values;
+    // const { nombres, apellidos, email, contraseña } = values;
 
 
-    const handleRegistro = (e) => {
-        e.preventDefault();
-        console.log(values);
-        dispatch(registerAsync(email, contraseña, nombres, apellidos))
-    }
+    // const handleRegistro = (e) => {
+    //     e.preventDefault();
+    //     reset();
+    //     console.log(values);
+    //     dispatch(registerAsync(email, contraseña, nombres, apellidos))
+    // }
 
   return (
     <>
-        <Form onSubmit={handleRegistro}>
+        <Form 
+        // onSubmit={handleRegistro}
+        >
             
             {/* nombres */}
             <Form.Group>
                 <Form.Label>Nombres</Form.Label>
                 <Form.Control type='text' 
                     name='nombres'
-                    value={nombres}
-                    onChange={handleInputChange}
+                    // value={nombres}
+                    // onChange={handleInputChange}
                 />
             </Form.Group>
 
@@ -43,8 +46,8 @@ const RegisterForm = () => {
                 <Form.Label>Apellidos</Form.Label>
                 <Form.Control type='text' 
                     name='apellidos'
-                    value={apellidos}
-                    onChange={handleInputChange}
+                    // value={apellidos}
+                    // onChange={handleInputChange}
                 />
             </Form.Group>
 
@@ -53,8 +56,8 @@ const RegisterForm = () => {
                 <Form.Label>Correo</Form.Label>
                 <Form.Control type='email' 
                     name='email'
-                    value={email}
-                    onChange={handleInputChange}
+                    // value={email}
+                    // onChange={handleInputChange}
                 />
             </Form.Group>
 
@@ -63,8 +66,8 @@ const RegisterForm = () => {
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control type='password' 
                     name='contraseña'
-                    value={contraseña}
-                    onChange={handleInputChange}
+                    // value={contraseña}
+                    // onChange={handleInputChange}
                 />
             </Form.Group>
             
@@ -75,5 +78,3 @@ const RegisterForm = () => {
     </>
   )
 }
-
-export default RegisterForm

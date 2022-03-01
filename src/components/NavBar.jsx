@@ -35,7 +35,6 @@ const NavBar = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">More deets</Nav.Link>
                         <Nav.Link eventKey={2} href="#" onClick={() => handleLogout()}>
                             Logout
                         </Nav.Link>

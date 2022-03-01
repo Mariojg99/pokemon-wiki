@@ -4,13 +4,13 @@ import { useDispatch } from 'react-redux';
 import { loginEmailPassAsync, loginGoogleAsync } from '../actions/actionLogin';
 import { useForm } from '../hooks/useForm';
 
-const LoginForm = () => {
+export const LoginForm = () => {
 
     const dispatch = useDispatch();
 
     const {values, handleInputChange, reset} = useForm({
         email: '',
-        contraseña: ''
+        contraseña: '',
     })
 
     const { email, contraseña } = values;
@@ -62,5 +62,3 @@ const LoginForm = () => {
     </>
   )
 }
-
-export default LoginForm;

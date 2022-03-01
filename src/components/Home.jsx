@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
-import CardList from './CardList';
-import Pokemon from './Pokemon';
+import {Pokemon} from './Pokemon';
 
 const Home = () => {
   return (

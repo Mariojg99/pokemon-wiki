@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row, Tab, Tabs } from 'react-bootstrap'
-import LoginForm from './LoginForm'
-import RegisterForm from './RegisterForm'
+import {LoginForm} from './LoginForm'
+import {RegisterForm} from './RegisterForm'
 import '../styles/Autentication.css'
 
 const Autentication = () => {

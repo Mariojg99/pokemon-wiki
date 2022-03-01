@@ -1,7 +1,6 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-
-import CardPokemon from './CardPokemon';
+import {CardPokemon} from './CardPokemon';
 
 const CardList = ({results}) => {
   return (
@@ -11,9 +10,9 @@ const CardList = ({results}) => {
             {
                 results.map(pokemon => (
                     <Col>
-                        <CardPokemon key={pokemon.name}
-                            nombre={pokemon.name}
-                            url={pokemon.url}
+                        <CardPokemon 
+                            key={pokemon.name}    
+                            url={pokemon.url} 
                         />
                     </Col>
                 ))
