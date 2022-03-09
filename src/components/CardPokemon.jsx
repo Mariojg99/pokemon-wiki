@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
-import '../styles/pokemon.css'
+import '../styles/pokemon.css';
 
 export const CardPokemon = ({url}) => {
 
@@ -17,7 +17,7 @@ export const CardPokemon = ({url}) => {
                     <img src='https://i.pinimg.com/originals/f9/7f/5c/f97f5c6510994f677877b08320475008.gif' alt='cargando' width={80}/>
                 </div>
                 :
-                <Link to={`/pokemon/${data.id}`}>
+                <Link to={`/pokemon/${data.id}`} className='text-decoration-none'>
                     <Card className={`${data.types[0].type.name} mb-2 card-pokemon`}>
                         <Card.Header>{data.id}</Card.Header>
                         <Card.Body>

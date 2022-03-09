@@ -1,6 +1,7 @@
 .card-pokemon {
     box-shadow: 2px 2px 2px 2px #33333393;
     width: 16rem;
+    color: black;
 }
   
 .card-pokemon:hover {
