@@ -8,16 +8,16 @@ export const LoginForm = () => {
 
     const dispatch = useDispatch();
 
-    const {values, handleInputChange, reset} = useForm({
-        email: '',
-        contraseña: '',
+    const {values, handleInputChange } = useForm({
+        logEmail: '',
+        logContraseña: '',
     })
 
-    const { email, contraseña } = values;
+    const { logEmail, logContraseña } = values;
 
     const handleLogin = (e) => {
         e.preventDefault()
-        dispatch(loginEmailPassAsync(email, contraseña))
+        dispatch(loginEmailPassAsync(logEmail, logContraseña))
     }
 
     const handleGoogleAsync = () => {
@@ -30,34 +30,34 @@ export const LoginForm = () => {
               {/* campo email */}
               <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" name='email' onChange={handleInputChange}/>
+                  <Form.Control type="email" name='logEmail' onChange={handleInputChange}/>
               </Form.Group>
 
                 {/* campo contraseña */}
               <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password"  name='contraseña' onChange={handleInputChange} />
+                  <Form.Control type="password"  name='logContraseña' onChange={handleInputChange} />
               </Form.Group>
 
               {/* submit */}
               <div className='mt-3'>
-                <Button variant="danger" type="submit" className='w-100'>
+                <Button variant="dark" type="submit" className='w-100'>
                     Login
                 </Button>
               </div>
-              <hr />
+              
               <div className='mt-3'>
-                <Button variant="success" type="submit" className='w-100' onClick={() => handleGoogleAsync()}>
+                <Button variant="danger" type="submit" className='w-100' onClick={() => handleGoogleAsync()}>
                     <i className="bi bi-google me-2" />
                     Login with Google
                 </Button>
               </div>
-              <div className='mt-3'>
+              {/* <div className='mt-3'>
                 <Button variant="primary" type="submit" className='w-100'>
                     <i className='bi bi-facebook me-2' />
                     Login with Facebook
                 </Button>
-              </div>
+              </div> */}
           </Form>
     </>
   )

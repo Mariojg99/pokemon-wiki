@@ -24,8 +24,8 @@ export const Pokemon = () => {
             :
             <div>
               <CardList results={data.results} />
-              <Container className='m-auto'>
-                <Button variant='dark' onClick={() => setUrl(data.previous)}>Anterior</Button>
+              <Container className='my-5 text-center'>
+                <Button className='me-2' variant='dark' onClick={() => setUrl(data.previous)}>Anterior</Button>
                 <Button variant='dark' onClick={() => setUrl(data.next)}>Siguiente</Button>
               </Container>
             </div>

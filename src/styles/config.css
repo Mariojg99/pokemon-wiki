@@ -15,3 +15,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.home, .card-pokemon {
+  z-index: 1;
+}
+
+.navBar {
+  z-index: 2;
+}
+
+
+

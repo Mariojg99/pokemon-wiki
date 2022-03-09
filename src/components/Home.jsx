@@ -4,7 +4,7 @@ import {Pokemon} from './Pokemon';
 
 const Home = () => {
   return (
-    <div>
+    <div className='home'>
         <div className='container-search w-50 mx-auto mt-4'>
             <Form>
                 <InputGroup className="mb-3">
@@ -13,7 +13,7 @@ const Home = () => {
                         aria-label="Recipient's username"
                         aria-describedby="basic-addon2"
                     />
-                    <Button variant="outline-primary" id="button-addon2">
+                    <Button variant="success" id="button-addon2">
                         <i className='bi bi-search'/>
                     </Button>
                 </InputGroup>

@@ -7,8 +7,7 @@ export const registroReducer = (state = {}, action) => {
         return{
            email: action.payload.email,
            password: action.payload.password,
-           name: action.payload.name,
-           lastname: action.payload.lastname
+           name: action.payload.name
         }
 
         default:
