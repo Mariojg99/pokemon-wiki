@@ -2,12 +2,13 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
-import '../styles/pokemon.css';
+import "../styles/pokemon.css"
 
 export const CardPokemon = ({url}) => {
 
    const estado = useFetch(url);
    const {cargando, data} = estado;
+   console.log(data);
     return (
         <>
             {
@@ -19,7 +20,9 @@ export const CardPokemon = ({url}) => {
                 :
                 <Link to={`/pokemon/${data.id}`} className='text-decoration-none'>
                     <Card className={`${data.types[0].type.name} mb-2 card-pokemon`}>
-                        <Card.Header>{data.id}</Card.Header>
+                        <Card.Header>{data.id}
+                        </Card.Header>
+     
                         <Card.Body>
                             <Card.Img src={data.sprites.front_default} alt='pokemon'/>
                             <Card.Title className='text-center'>{data.forms[0].name}</Card.Title>

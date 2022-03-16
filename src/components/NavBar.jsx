@@ -18,7 +18,7 @@ const NavBar = () => {
     <header className='position-sticky top-0 navBar'>
         <Navbar expand="lg" variant="dark" bg="dark">
             <Container>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="/">
                     <img src="https://res.cloudinary.com/karma09-jm/image/upload/v1646021226/Pokemon/2560px-International_Pok%C3%A9mon_logo.svg_oqz6j3.png" alt="pokemon-logo" width={120} />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
