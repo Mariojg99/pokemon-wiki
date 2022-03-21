@@ -29,18 +29,18 @@ export const loginGoogleAsync = () => {
     }
 }
 
-// export const loginFacebookAsync = () => {
-//     return() => {
-//         const auth = getAuth();
-//         signInWithPopup(auth, facebook)
-//         .then(user => {
-//             console.log(user);
-//         })
-//         .catch(error => {
-//             console.log(error);
-//         })
-//     }
-// }
+export const loginFacebookAsync = () => {
+    return() => {
+        const auth = getAuth();
+        signInWithPopup(auth, facebook)
+        .then(user => {
+            console.log(user);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+}
 
 export const loginSync = (id, displayname) => {
     return {

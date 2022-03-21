@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
-import { loginEmailPassAsync, loginGoogleAsync } from '../actions/actionLogin';
+import { loginEmailPassAsync, loginFacebookAsync, loginGoogleAsync } from '../actions/actionLogin';
 import { useForm } from '../hooks/useForm';
 
 export const LoginForm = () => {
@@ -22,6 +22,10 @@ export const LoginForm = () => {
 
     const handleGoogleAsync = () => {
         dispatch(loginGoogleAsync())
+    }
+
+    const handleFacebookAsync = () => {
+        dispatch(loginFacebookAsync())
     }
 
   return (
@@ -52,12 +56,12 @@ export const LoginForm = () => {
                     Login with Google
                 </Button>
               </div>
-              {/* <div className='mt-3'>
-                <Button variant="primary" type="submit" className='w-100'>
+              <div className='mt-3'>
+                <Button variant="primary" type="submit" className='w-100' onClick={() => handleFacebookAsync()}>
                     <i className='bi bi-facebook me-2' />
                     Login with Facebook
                 </Button>
-              </div> */}
+              </div>
           </Form>
     </>
   )

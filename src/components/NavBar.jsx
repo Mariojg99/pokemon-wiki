@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Button, Container, Nav, Navbar} from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logoutAsync } from '../actions/actionLogin';
@@ -16,7 +16,7 @@ const NavBar = () => {
     }
   return (
     <header className='position-sticky top-0 navBar'>
-        <Navbar expand="lg" variant="dark" bg="dark">
+        <Navbar expand="lg" variant="dark" bg="dark" >
             <Container>
                 <Navbar.Brand href="/" className='d-flex align-items-center'>
                     <img src="https://res.cloudinary.com/karma09-jm/image/upload/v1646020505/Pokemon/Pok%C3%A9_Ball_icon.svg_xfnnva.png" alt="pokemon-logo" width={40} />
@@ -24,7 +24,8 @@ const NavBar = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-end'>
-                    <Nav>
+                    <Nav className='align-items-center'>
+                        <Nav.Link href='/master-pokemon'>Registrar Maestro</Nav.Link>
                         <Nav.Link eventKey={2} href="#">
                             <Button variant='danger' onClick={() => handleLogout()}>Logout</Button>
                         </Nav.Link>
