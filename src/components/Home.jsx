@@ -1,29 +1,79 @@
-import React from 'react'
-import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
-import {Pokemon} from './Pokemon';
+import React, { useEffect, useState } from 'react';
+import { getPokeData, getPokemon, searchPokemon } from '../helpers/API';
+import CardList from './CardList';
+import SearchForm from './SearchForm';
 
 const Home = () => {
-  return (
-    <div className='home'>
-        <div className='container-search w-50 mx-auto mt-4'>
-            <Form>
-                <InputGroup className="mb-3">
-                    <FormControl
-                        placeholder="Busca tu pokemon favorito"
-                        aria-label="Recipient's username"
-                        aria-describedby="basic-addon2"
+    const [pokemons, setPokemons] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [notFound, setNotFound] = useState(false);
+    const [searching, setSearching] = useState(false);
+    const [page, setPage] = useState(0);
+    const [total, setTotal] = useState(0);
+
+    const fetchPokemon = async () => {
+        setLoading(true);
+        const data = await getPokemon(25, 25 * page);
+        console.log(data);
+        const promises = data.results.map(async (pokemon) => {
+            return await getPokeData(pokemon.url)
+        });
+        const results = await Promise.all(promises);
+        setPokemons(results);
+        setLoading(false);
+        setTotal(Math.ceil(data.count / 25));
+        setNotFound(false)
+    }
+
+    useEffect(() => {
+        if (!searching) {
+            fetchPokemon();
+        }
+    }, [page]);
+
+    const onSearch = async (pokemon) => {
+        if (!pokemon) {
+            return fetchPokemon();
+        }
+        setLoading(true);
+        setNotFound(false);
+        setSearching(true);
+        const result = await searchPokemon(pokemon);
+        if (!result) {
+            setNotFound(true);
+            setLoading(false);
+            return;
+        }
+        else {
+            setPokemons([result]);
+            setPage(0);
+            setTotal(1);
+        }
+        setLoading(false);
+        setSearching(false);
+    }
+
+    return (
+        <div>
+            <SearchForm onSearch={onSearch} />
+            {
+                notFound ?
+                    <h1>No se encontró el Pokemon que buscas</h1>
+                    :
+                    <CardList
+                        loading={loading}
+                        pokemons={pokemons}
+                        page={page}
+                        setPage={setPage}
+                        total={total}
                     />
-                    <Button variant="success" id="button-addon2">
-                        <i className='bi bi-search'/>
-                    </Button>
-                </InputGroup>
-            </Form>
+            }
+
+            
         </div>
-        <div className='mt-4'>
-            <Pokemon />
-        </div>
-    </div>
-  )
+
+
+    )
 }
 
-export default Home;
+export default Home
