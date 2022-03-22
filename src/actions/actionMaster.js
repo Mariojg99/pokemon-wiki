@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, getDocs, query, where } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import { typesMaster } from "../types/types";
 
@@ -73,5 +73,28 @@ export const registerMasterSync = (master) => {
     return {
         type: typesMaster.register,
         payload: master
+    }
+}
+
+// Editar
+export const updateMasterAsync = (id, keyUser, newData) => {
+    return async (dispatch) => {
+        const userDataRef = doc(db, "pokemon_master", `${keyUser}`);
+        const resp = await getDoc(userDataRef);
+        const data = resp.data().upload_master;
+        const indexUpdate = data.findIndex(master => master.id === id);
+        data.splice(indexUpdate, 1, newData);
+
+        updateDoc(userDataRef, {
+            upload_master: data
+        })
+        dispatch(updateMasterSync(data));
+    }
+}
+
+export const updateMasterSync = (newData) => {
+    return {
+        type: typesMaster.update,
+        payload: newData
     }
 }

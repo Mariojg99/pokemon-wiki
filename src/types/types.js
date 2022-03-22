@@ -7,5 +7,6 @@ export const types = {
 export const typesMaster = {
     register: 'register',
     list: 'list',
-    delete: 'delete'
+    delete: 'delete',
+    update: 'update'
 }
